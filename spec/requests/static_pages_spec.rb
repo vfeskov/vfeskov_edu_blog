@@ -6,12 +6,12 @@ describe "Static pages" do
 
     it "should have the right title" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => '| Home')
+      page.should have_selector('title', :text => 'Testing out stuff')
     end
 
-    it "should have h1 'Home'" do
+    it "should have h1 'Sample App'" do
       visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Sample app')
+      page.should have_selector('h1', :text => 'Sample App')
     end
   end
 
@@ -38,6 +38,20 @@ describe "Static pages" do
     it "should have h1 'About Us'" do
       visit '/static_pages/about'
       page.should  have_selector('h1', :text => 'About Us')
+    end
+  end
+
+  describe "Contact page" do
+
+    it "should have the h1 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector('h1', text: 'Contact')
+    end
+
+    it "should have the title 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector('title',
+                                text: "Testing out stuff | Contact")
     end
   end
 end
